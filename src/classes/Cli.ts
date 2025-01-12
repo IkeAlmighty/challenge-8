@@ -418,16 +418,12 @@ class Cli {
           for (const vehicle of this.vehicles) {
             if (vehicle.vin === this.selectedVehicleVin && vehicle instanceof Truck) {
               selectedTruck = vehicle as Truck;
-
-              if (!selectedTruck) {
-                console.log('vehicle not a truck');
-                this.performActions();
-              }
-              else {
-                this.findVehicleToTow(selectedTruck);
-              }
-
+              this.findVehicleToTow(selectedTruck);
             }
+          }
+
+          if (!selectedTruck) {
+            console.log('vehicle not a truck');
           }
 
         }
@@ -439,15 +435,12 @@ class Cli {
           for (const vehicle of this.vehicles) {
             if (vehicle.vin === this.selectedVehicleVin && vehicle instanceof Motorbike) {
               selectedBike = vehicle as Motorbike;
-
-              if (!selectedBike) {
-                console.log('vehicle not a bike');
-                this.performActions();
-              }
-              else {
-                selectedBike.wheelie();
-              }
+              selectedBike.wheelie();
             }
+          }
+
+          if (!selectedBike) {
+            console.log('vehicle not a bike');
           }
         }
         else if (answers.action === 'Select or create another vehicle') {
