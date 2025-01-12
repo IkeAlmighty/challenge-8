@@ -58,8 +58,8 @@ class Truck extends Vehicle implements AbleToTow {
 
     function createWheelString(wheels: Wheel[]) {
       let wheelString: String = 'Wheels: \n';
-      wheels.forEach((w: Wheel, index: Number) => {
-        wheelString += `- Wheel ${index} - \nDiameter: ${w.getDiameter}, Brand: ${w.getTireBrand}\n`;
+      wheels.forEach((w: Wheel, index: number) => {
+        wheelString += `- Wheel ${index + 1} - \nDiameter: ${w.getDiameter}, Brand: ${w.getTireBrand}\n`;
       })
 
       return wheelString;
