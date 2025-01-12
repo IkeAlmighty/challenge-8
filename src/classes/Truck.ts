@@ -32,8 +32,8 @@ class Truck extends Vehicle implements AbleToTow {
     this.wheels = wheels;
     this.towingCapacity = towingCapacity;
 
-    for (let i = this.wheels.length - 1; i < 4; i++) {
-      this.wheels.push(new Wheel());
+    if (wheels.length < 4) {
+      this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel()];
     }
   }
 
@@ -55,16 +55,26 @@ class Truck extends Vehicle implements AbleToTow {
   // Override the printDetails method from the Vehicle class
   override printDetails(): void {
     super.printDetails();
+
+    function createWheelString(wheels: Wheel[]) {
+      let wheelString: String = 'Wheels: \n';
+      wheels.forEach((w: Wheel, index: Number) => {
+        wheelString += `- Wheel ${index} - \nDiameter: ${w.getDiameter}, Brand: ${w.getTireBrand}\n`;
+      })
+
+      return wheelString;
+    }
+
     console.log(`
-      vin: ${this.vin}\n,
-      make: ${this.make}\n,
-      model: ${this.model}\n,
-      year: ${this.year}\n,
-      weight: ${this.weight}\n,
-      topSpeed: ${this.topSpeed}\n,
-      color: ${this.color}\n,
-      towingCapacity: ${this.towingCapacity}\n,
-      wheels: ${this.wheels}\n
+vin: ${this.vin}
+make: ${this.make}
+model: ${this.model}
+year: ${this.year}
+weight: ${this.weight}
+topSpeed: ${this.topSpeed}
+color: ${this.color}
+towingCapacity: ${this.towingCapacity}
+wheels: ${createWheelString(this.wheels)}
     `)
   }
 }

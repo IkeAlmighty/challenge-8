@@ -45,15 +45,25 @@ class Motorbike extends Vehicle {
   // Override the printDetails method from the Vehicle class
   override printDetails(): void {
     super.printDetails();
+
+    function createWheelString(wheels: Wheel[]) {
+      let wheelString: String = 'Wheels: \n';
+      wheels.forEach((w: Wheel, index: Number) => {
+        wheelString += `- Wheel ${index} - \nDiameter: ${w.getDiameter}, Brand: ${w.getTireBrand}\n`;
+      })
+
+      return wheelString;
+    }
+
     console.log(`
-       VIN: ${this.vin} \n
-       make: ${this.make} \n
-       model: ${this.model} \n
-       year: ${this.year} \n
-       weight: ${this.weight} \n
-       top speed: ${this.topSpeed} \n
-       color: ${this.color} \n
-       wheels: ${this.wheels}
+vin: ${this.vin}
+make: ${this.make}
+model: ${this.model}
+year: ${this.year}
+weight: ${this.weight}
+topSpeed: ${this.topSpeed}
+color: ${this.color}
+wheels: ${createWheelString(this.wheels)}
     `)
   }
 }
