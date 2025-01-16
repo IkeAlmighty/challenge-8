@@ -1,6 +1,6 @@
 # Vehicle Builder - Challenge 8
 
-Follow [this link]() to the video walkthrough.
+Follow [this link](https://drive.google.com/file/d/1hvjFpb9y7lKyQ89z5cLN75xnm_PWl7XT/view?usp=drive_link) to the video walkthrough.
 
 Challenge 8 is to complete the implementation of a CLI based vehicle builder/simulator. 
 
